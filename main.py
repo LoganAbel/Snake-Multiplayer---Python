@@ -1,8 +1,21 @@
 from game import game
 import pygame as pg
-from pghelp import *
 from snake import Snake
 from base import *
+
+def keys(k):
+	def axis(a,b):
+		return (k == a) - (k == b)
+	def dual_axis(a,b,c,d):
+		return axis(a,b) + axis(c,d) * 1j
+	return dual_axis
+
+arrow_keys = [
+	[pg.K_RIGHT, pg.K_LEFT, pg.K_DOWN, pg.K_UP],
+	[pg.K_d, pg.K_a, pg.K_s, pg.K_w],
+	[pg.K_h, pg.K_f, pg.K_g, pg.K_t],
+	[pg.K_l, pg.K_j, pg.K_k, pg.K_i],
+]
 
 pg.init()
 screen = pg.display.set_mode((640,640),pg.RESIZABLE)
